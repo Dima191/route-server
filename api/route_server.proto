@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "/routeserver";
+
+service Route {
+  rpc AllRoutes(google.protobuf.Empty) returns (stream AllRoutesResponse);
+}
+
+message AllRoutesResponse{
+  string domain = 1;
+  string host = 2;
+  string port = 3;
+}
